@@ -19,6 +19,8 @@
         <label for="fecha_inicio">Fecha de inicio</label>
         <input type="date" name="fecha_inicio" id="fecha_inicio">
         <br>
+        <label for="folio">Folio:</label>
+        <input type="text" id="folio" name="folio"><br><br>
         <button type="submit">Crear reporte</button>
     </form>
 </body>
