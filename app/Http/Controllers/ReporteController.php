@@ -34,6 +34,7 @@ class ReporteController extends Controller
         $reporte->descripcion = $request->descripcion;
         $reporte->ubicacion = $request->ubicacion;
         $reporte->fecha_inicio = $request->fecha_inicio;
+        $reporte->folio = $request->folio;
         $reporte->save();
 
         return redirect()->back();
