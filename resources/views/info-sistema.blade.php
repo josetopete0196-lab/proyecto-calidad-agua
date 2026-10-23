@@ -2,12 +2,13 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Información del sistema</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Información del Sistema</title>
 </head>
 <body>
-    <h1>Información del sistema</h1>
-    <p>Esta es la información del sistema</p>
-    <p>Laravel {{ app()->version() }}</p>
-    <p>PHP {{ PHP_VERSION }}</p>
+    <h1>Sobre este sistema</h1>
+
+    <p>Sistema para reportar la calidad del agua.</p>
 </body>
 </html>
