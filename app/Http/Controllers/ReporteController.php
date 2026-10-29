@@ -14,11 +14,10 @@ class ReporteController extends Controller
     public function index()
     {
         return view('reportes.listar-reportes')->with([
-         //'reportes' -> Reporte::where('user_id', auth::id())->get(),
-
-         'reportes' => Auth::user()->reportes->sortByDesc('id'),
-
-
+            // 'reportes' => Reporte::where('user_id',  Auth::id())
+            //                 ->latest()
+            //                 ->get(),
+            'reportes' => auth()->user()->reportes->sortByDesc('id'), // Auth::user()->reportes,
         ]);
     }
 
@@ -35,17 +34,15 @@ class ReporteController extends Controller
      */
     public function store(Request $request)
     {
-          $request->merge(['user_id'=> auth()->user()->id]);
-          Reporte::create($request->all());
+        $request->merge(['user_id' => auth()->user()->id]);
+        Reporte::create($request->all());
 
-
-        //$reporte = new Reporte();
-        //$reporte->user_id = auth()->user()->id; // Auth::user()->id; Auth::id();
-        //$reporte->descripcion = $request->descripcion;
-        //$reporte->ubicacion = $request->ubicacion;
-        //$reporte->fecha_inicio = $request->fecha_inicio;
-        //$reporte->folio = $request->folio;
-        //$reporte->save();
+        // $reporte = new Reporte();
+        // $reporte->user_id = auth()->user()->id; // Auth::user()->id; Auth::id();
+        // $reporte->descripcion = $request->descripcion;
+        // $reporte->ubicacion = $request->ubicacion;
+        // $reporte->fecha_inicio = $request->fecha_inicio;
+        // $reporte->save();
 
         return redirect()->route('reporte.index');
     }
@@ -55,7 +52,9 @@ class ReporteController extends Controller
      */
     public function show(Reporte $reporte)
     {
-        //
+        return view('reportes.ver-reporte')->with([
+            'reporte' => $reporte,
+        ]);
     }
 
     /**
@@ -63,7 +62,9 @@ class ReporteController extends Controller
      */
     public function edit(Reporte $reporte)
     {
-        //
+        return view('reportes.editar-reporte')->with([
+            'reporte' => $reporte,
+        ]);
     }
 
     /**
@@ -71,7 +72,9 @@ class ReporteController extends Controller
      */
     public function update(Request $request, Reporte $reporte)
     {
-        //
+        $reporte->update($request->only(['ubicacion', 'descripcion', 'fecha_inicio']));
+
+        return redirect()->route('reporte.show', $reporte);
     }
 
     /**
@@ -79,6 +82,8 @@ class ReporteController extends Controller
      */
     public function destroy(Reporte $reporte)
     {
-        //
+        $reporte->delete();
+
+        return redirect()->route('reporte.index');
     }
 }
