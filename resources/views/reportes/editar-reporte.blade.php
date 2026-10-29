@@ -20,6 +20,9 @@
         <label for="fecha_inicio">Fecha de inicio</label>
         <input type="date" name="fecha_inicio" id="fecha_inicio" value="{{ $reporte->fecha_inicio }}">
         <br>
+        <label for="folio">Folio:</label>
+        <input type="text" name="folio" id="folio" value="{{ $reporte->folio }}">
+        <br>
         <button type="submit">Actualizar reporte</button>
     </form>
 
