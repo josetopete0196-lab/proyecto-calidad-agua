@@ -26,8 +26,8 @@ class DatabaseSeeder extends Seeder
         User::factory()
             ->has(Reporte::factory()->count(12))
             ->create([
-                'name' => 'Samuel',
-                'email' => 'samuel@demo.com',
+                'name' => 'jose luis',
+                'email' => 'joseluistopete360@gmail.com',
             ]);
 
         $this->call([
